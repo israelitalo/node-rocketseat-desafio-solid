@@ -19,12 +19,6 @@ class UsersRepository implements IUsersRepository {
   }
 
   create({ name, email }: ICreateUserDTO): User {
-    const existsUser = this.findByEmail(email);
-
-    if (existsUser) {
-      throw new Error("Usuário já existe");
-    }
-
     const newUser: User = new User();
 
     Object.assign(newUser, {
